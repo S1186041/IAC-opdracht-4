@@ -1,0 +1,8 @@
+---
+# tasks file for mysql
+- name: Install MySQL
+  apt:
+    name: mysql-server
+    state: present
+    update_cache: yes
+

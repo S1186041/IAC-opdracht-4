@@ -1,0 +1,19 @@
+---
+# tasks file for nodejs
+- name: Install Node.js
+  apt:
+    name: nodejs
+    state: present
+    update_cache: yes
+
+- name: Install npm
+  apt:
+    name: npm
+    state: present
+    update_cache: yes
+
+- name: Install jslint via npm
+  npm:
+    name: jslint
+    state: present
+

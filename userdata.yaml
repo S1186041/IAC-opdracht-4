@@ -1,0 +1,20 @@
+#cloud-config
+users:
+  - name: ${ssh_username}
+    ssh-authorized-keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO35Ukwf4fH+CLtg7oK/bTEQGy4EmT2odDfQdoLecTx8
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    groups: sudo
+    shell: /bin/bash
+packages:
+  - tree
+  - ntpdate
+  - curl
+ntp:
+  enabled: true
+  ntp_client: chrony
+runcmd:
+  - date >/root/cloudinit.log
+  - echo "IAC les 02" >>/root/cloudinit.log
+  - echo "Done cloud-init" >>/root/cloudinit.log
+
